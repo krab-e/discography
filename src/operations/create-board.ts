@@ -18,12 +18,16 @@ export const createBoard = async ({
   title: string;
   description: string;
 }) => {
-  if (!title || typeof title !== 'string')
-    throw new Error('Board title must be a valid string.');
+  try {
+    if (!title || typeof title !== 'string')
+      throw new Error('Board title must be a valid string.');
 
-  const { data: newBoard } = await axios.post(
-    `https://api.trello.com/1/boards/?name=${title}&desc=${description}&defaultLists=false&key=${key}&token=${token}`,
-  );
+    const { data: newBoard } = await axios.post(
+      `https://api.trello.com/1/boards/?name=${title}&desc=${description}&defaultLists=false&idOrganization=discographyws&key=${key}&token=${token}`,
+    );
 
-  return newBoard;
+    return newBoard;
+  } catch (error) {
+    console.log(error);
+  }
 };
