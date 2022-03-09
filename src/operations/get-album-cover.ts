@@ -2,8 +2,10 @@ import { configSpotifyApi } from '../utils/spotify-api';
 
 const spotifyWebApi = configSpotifyApi();
 
-export const getArtistAlbums = async () => {
-  const data = await spotifyWebApi.getArtistAlbums('74ASZWbe4lXaubB36ztrGX', {
+export const getArtistAlbums = async (
+  artistId: string,
+): Promise<SpotifyApi.AlbumObjectSimplified[]> => {
+  const data = await spotifyWebApi.getArtistAlbums(artistId, {
     limit: 50,
   });
 

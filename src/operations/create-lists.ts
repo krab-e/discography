@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
 import axios from 'axios';
+import { List } from '../types';
 
 const key = process.env.TRELLO_API_KEY;
 const token = process.env.TRELLO_API_TOKEN;
@@ -11,7 +12,10 @@ const token = process.env.TRELLO_API_TOKEN;
  * @param {string} description New board's description.
  * @returns {String[]} Array where "i" is a utf-8 string that represents a line read from the given file.
  */
-export const createBoardLists = async (boardId: string, lists: string[]) => {
+export const createBoardLists = async (
+  boardId: string,
+  lists: string[],
+): Promise<List[]> => {
   if (!boardId || typeof boardId !== 'string')
     throw new Error('Board title must be a valid string.');
 
