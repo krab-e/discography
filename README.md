@@ -21,6 +21,6 @@ Compile Typescript to Javascript in dist folder and run the project with:
   yarn start
 ```
 
-**_Important_**: The whole process will take almost 30 seconds because of ts
-compilation, several API calls and a 15 second setTimeout() to prevent trello's
-429 Rate limit error.
+**_Important_**: The whole process will take almost 17 seconds because of ts
+compilation, several API calls and a setTimeout() to prevent trello's 429 Rate
+limit error.
